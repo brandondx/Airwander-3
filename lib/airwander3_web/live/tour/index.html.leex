@@ -1,0 +1,38 @@
+
+<div class="main_div">
+
+    <h1> Air Wander 0.01</h1>
+        <form phx-change="tour_selected">
+          <select name="tour" id="select_tours">
+            <option value="">Type of Trip</option>
+            <%= for c <- @trips do %>
+              <option value="<%= c.id %>" <%= selected_attr(@trip, c) %> > <%= c.title %> </option>
+            <% end %>
+          </select>
+        </form>
+
+      <%= f = form_for @changeset, "#",
+      class: "row",
+      phx_change: "validate-tour",
+      phx_submit: "submit-tour" %>
+
+        <div class="row">
+
+            <span> <%= error_tag f, :input_1 %> </span>
+              <%= text_input f, :input_1, class: "input_text", placeholder: "Input #1"%>
+
+            <span> <%= error_tag f, :input_2 %></span>
+              <%= text_input f, :input_2, class: "input_text", placeholder: "Input #2"%>
+
+            <%= if @trip && @trip.title in ["Round-Trip", "Multi-City", "World-Tour"] do %>
+            <span> <%= error_tag f, :input_3 %></span>
+              <%= text_input f, :input_3, class: "input_text", placeholder: "Input #3"%>
+            <% end %>
+
+            <%= if @trip && @trip.title == "World-Tour" do %>
+            <span> <%= error_tag f, :input_4 %></span>
+              <%= text_input f, :input_4, class: "input_text", placeholder: "Input #4"%>
+            <% end %>
+
+        </div>
+</div>

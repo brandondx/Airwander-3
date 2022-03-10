@@ -1,28 +1,19 @@
 import Config
 
-# Configure your database
-config :airwander_3, Airwander3.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "airwander_3_dev",
-  hostname: "localhost",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :airwander_3, Airwander3Web.Endpoint,
+config :airwander3, Airwander3Web.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "czx5Mc0gdgN2LSeKV/g4uhi1kHx4EkxDFeoHhyOGmkmjdxTdtNoEND44RTI+9S5t",
+  secret_key_base: "jay2DEKr6Fiqk5Q/DfU8Iyh4GehYcmTUfS5MmAGLAVK4Q+3U77QCmR+O3xLByzkj",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
@@ -53,13 +44,13 @@ config :airwander_3, Airwander3Web.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :airwander_3, Airwander3Web.Endpoint,
+config :airwander3, Airwander3Web.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/airwander_3_web/(live|views)/.*(ex)$",
-      ~r"lib/airwander_3_web/templates/.*(eex)$"
+      ~r"lib/airwander3_web/(live|views)/.*(ex)$",
+      ~r"lib/airwander3_web/templates/.*(eex)$"
     ]
   ]
 

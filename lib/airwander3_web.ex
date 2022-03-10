@@ -30,7 +30,7 @@ defmodule Airwander3Web do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/airwander_3_web/templates",
+        root: "lib/airwander3_web/templates",
         namespace: Airwander3Web
 
       # Import convenience functions from controllers

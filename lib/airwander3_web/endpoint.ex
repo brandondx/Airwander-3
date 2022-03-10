@@ -1,13 +1,13 @@
 defmodule Airwander3Web.Endpoint do
-  use Phoenix.Endpoint, otp_app: :airwander_3
+  use Phoenix.Endpoint, otp_app: :airwander3
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_airwander_3_key",
-    signing_salt: "M7je9RRi"
+    key: "_airwander3_key",
+    signing_salt: "+Oz1AtFw"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -18,7 +18,7 @@ defmodule Airwander3Web.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :airwander_3,
+    from: :airwander3,
     gzip: false,
     only: ~w(assets fonts images favicon.ico robots.txt)
 
@@ -28,7 +28,7 @@ defmodule Airwander3Web.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :airwander_3
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :airwander3
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -36,7 +36,6 @@ defmodule Airwander3Web.Endpoint do
     cookie_key: "request_logger"
 
   plug Plug.RequestId
-  plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],

@@ -8,10 +8,6 @@ defmodule Airwander3.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      Airwander3.Repo,
-      # Start the Telemetry supervisor
-      Airwander3Web.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: Airwander3.PubSub},
       # Start the Endpoint (http/https)

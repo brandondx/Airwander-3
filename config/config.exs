@@ -7,27 +7,12 @@
 # General application configuration
 import Config
 
-config :airwander_3,
-  ecto_repos: [Airwander3.Repo]
-
 # Configures the endpoint
-config :airwander_3, Airwander3Web.Endpoint,
+config :airwander3, Airwander3Web.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: Airwander3Web.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Airwander3.PubSub,
-  live_view: [signing_salt: "dKxQOGzi"]
-
-# Configures the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
-config :airwander_3, Airwander3.Mailer, adapter: Swoosh.Adapters.Local
-
-# Swoosh API client is needed for adapters other than SMTP.
-config :swoosh, :api_client, false
+  live_view: [signing_salt: "PT/Ghb1k"]
 
 # Configure esbuild (the version is required)
 config :esbuild,
